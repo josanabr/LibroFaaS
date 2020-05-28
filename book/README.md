@@ -12,3 +12,5 @@ Ejecute el comando:
 ```
 make clean && make
 ```
+
+Si no aparecen errores entonces en el directorio `output` encontrará el PDF del libro.
