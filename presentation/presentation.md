@@ -133,7 +133,10 @@
 
 * Kubernetes es un proyecto creado por Google y liberado en el 2014
 * Kubernetes tiene una alta influencia del mundo del desarrollo de software
-* Kubernetes ex
+
+<center>
+![](../book/figures/k8s-arch.png){width=75%}
+</center>
 
 # Algunos objetos en Kubernetes
 
