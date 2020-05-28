@@ -252,4 +252,6 @@ Veamos este ejemplo - [<a href="https://matthewpalmer.net/kubernetes-app-develop
 
 # Aplicación de Docker Compose → Kubernetes
 
+* Visitemos el demo [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
 
+* La versión en k8s - [enlace](https://github.com/josanabr/LibroFaaS/tree/master/code/k8s/flaskredisapp)
