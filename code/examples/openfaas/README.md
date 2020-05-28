@@ -34,4 +34,4 @@ Una vez autenticado entonces ya se puede interactuar con la plataforma.
 
 ---
 
-Está pendiente la inclusión de instrucciones para crear sus propias funciones.
+Está pendiente la inclusión de instrucciones para crear sus propias funciones. Pero se puede ir al libro en la sección 4.2.

@@ -99,6 +99,12 @@
 ![](../book/figures/FaaS-Architecture.png){width=50%}
 </center>
 
+# Ejemplos con OpenFaaS
+
+* OpenFaaS y funciones ya definidas - [enlace](https://github.com/josanabr/LibroFaaS/tree/master/code/examples/openfaas)
+
+* Texto guía, sección 4.2.
+
 # ¿Cómo será verlo operar en k8s? ¿Qué es k8s? ¿Cómo se interactúa con un ambiente de k8s?
 
 \ 
@@ -107,7 +113,6 @@
 <center>
 ![](../book/figures/thinking.png){width=30%}
 </center>
-
 
 # Agenda
 
@@ -255,3 +260,7 @@ Veamos este ejemplo - [<a href="https://matthewpalmer.net/kubernetes-app-develop
 * Visitemos el demo [Get started with Docker Compose](https://docs.docker.com/compose/gettingstarted/)
 
 * La versión en k8s - [enlace](https://github.com/josanabr/LibroFaaS/tree/master/code/k8s/flaskredisapp)
+
+# OpenFaaS + k8s
+
+Sección 5.6 del texto guía.
