@@ -40,58 +40,211 @@ John Sanabria - john.sanabria@correounivalle.edu.co
 <li><p><strong>PROBLEMA</strong> estas funciones no se pueden tomar más de 12 minutos en ejecución y la cantidad de RAM que consumen es limitada.</p></li>
 </ul>
 </div>
+<div id="agenda" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li><p>Serverless</p></li>
+<li><p>FaaS - Function as a Service</p></li>
+<li><p>OpenFaaS - una implementación de FaaS</p></li>
+<li><p>Kubernetes</p></li>
+<li><p>k3s - k8s para IoT</p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
+</ul>
+</div>
 <div id="serverless" class="slide section level1">
 <h1>Serverless</h1>
 <ul>
-<li><em>Serverless</em> hace referencia a un tipo de computación donde el usuario no tiene cuidado del servidor donde correrá sus procesos</li>
+<li><em>Serverless</em> hace referencia a un tipo de computación donde el usuario no tiene cuidado del servidor donde correrán sus procesos</li>
 </ul>
 <center>
 <img src="../book/figures/ServerlessPlatformArchitecture.png" style="width:70.0%" />
 </center>
 </div>
-<div id="faas" class="slide section level1">
-<h1>FaaS</h1>
+<div id="agenda-1" class="slide section level1">
+<h1>Agenda</h1>
 <ul>
-<li>FaaS (<em>Function as a Service</em>) es un tipo de <em>serverless</em> donde las funciones definidas por el desarrollador corren en contenedores</li>
+<li><p><del>Serverless</del></p></li>
+<li><p>FaaS - Function as a Service</p></li>
+<li><p>OpenFaaS - una implementación de FaaS</p></li>
+<li><p>Kubernetes</p></li>
+<li><p>k3s - k8s para IoT</p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
 </ul>
+</div>
+<div id="faas---function-as-a-service" class="slide section level1">
+<h1>FaaS - Function as a Service</h1>
+<ul>
+<li><p>FaaS (<em>Function as a Service</em>) es un tipo de <em>serverless</em> donde las funciones definidas por el desarrollador corren en contenedores</p></li>
+<li><p>FaaS es una computación orientada a eventos.</p>
+<ul>
+<li>Chatbots</li>
+<li>Producción de <em>thumbnail</em></li>
+<li>Análisis en tiempo real de datos</li>
+<li>Recomandaciones e-commerce</li>
+</ul></li>
+<li><p>FaaS para HPC</p>
+<ul>
+<li>Apoyo a recolección de datos generados por sistemas IoT</li>
+<li>Monitoreo de cargas de trabajo en almacenamiento para sistemas HPC</li>
+</ul></li>
+</ul>
+</div>
+<div id="faas---una-arquitectura-en-caricatura" class="slide section level1">
+<h1>FaaS - Una arquitectura en caricatura</h1>
+<p> </p>
+<p> </p>
 <center>
 <img src="../book/figures/FaaS.png" style="width:70.0%" />
 </center>
 </div>
+<div id="agenda-2" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li><p><del>Serverless</del></p></li>
+<li><p><del>FaaS - Function as a Service</del></p></li>
+<li><p>OpenFaaS - una implementación de FaaS</p></li>
+<li><p>Kubernetes</p></li>
+<li><p>k3s - k8s para IoT</p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
+</ul>
+</div>
 <div id="openfaas" class="slide section level1">
 <h1>OpenFaaS</h1>
 <ul>
-<li>OpenFaaS es una implementación del concepto de FaaS que permite ejecutar funciones como servicios en diferentes entornos.</li>
+<li>OpenFaaS es una implementación del concepto de FaaS que permite ejecutar funciones como servicios en diferentes entornos, <em>bare metal</em> y orquestadores de contenedores.</li>
 </ul>
 <center>
 <img src="../book/figures/FaaS-Architecture.png" style="width:50.0%" />
 </center>
 </div>
-<div id="kubernetes" class="slide section level1">
-<h1>Kubernetes</h1>
+<div id="cómo-será-verlo-operar-en-k8s-qué-es-k8s-cómo-se-interactúa-con-un-ambiente-de-k8s" class="slide section level1">
+<h1>¿Cómo será verlo operar en k8s? ¿Qué es k8s? ¿Cómo se interactúa con un ambiente de k8s?</h1>
+<p> </p>
 <center>
-<img src="../book/figures/k8s-arch.png" style="width:50.0%" />
+<img src="../book/figures/thinking.png" style="width:30.0%" />
 </center>
+</div>
+<div id="agenda-3" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li><p><del>Serverless</del></p></li>
+<li><p><del>FaaS - Function as a Service</del></p></li>
+<li><p><del>OpenFaaS - una implementación de FaaS</del> </p></li>
+<li><p>Kubernetes</p></li>
+<li><p>k3s - k8s para IoT</p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
+</ul>
+</div>
+<div id="kubernetes---un-orquestador-de-contenedores" class="slide section level1">
+<h1>Kubernetes - un orquestador de contenedores</h1>
+<ul>
+<li>Kubernetes es un proyecto creado por Google y liberado en el 2014</li>
+<li>Kubernetes tiene una alta influencia del mundo del desarrollo de software</li>
+<li>Kubernetes ex</li>
+</ul>
 </div>
 <div id="algunos-objetos-en-kubernetes" class="slide section level1">
 <h1>Algunos objetos en Kubernetes</h1>
+<ul>
+<li><p><em>Pod</em> es la unidad básica de ejecución en k8s. Un <em>pod</em> ejecuta contenedores.</p></li>
+<li><p><em>Service</em> es un objeto que permite exponer un servicio que corre en un <em>pod</em> afuera de este. Ejemplo de objetos que se apoyan en <em>Service</em>: <em>NodePort</em>, <em>LoadBalancer</em> e <em>Ingress</em>.</p></li>
+<li><p>Los objetos generalmente se definen en un archivo YAML.</p></li>
+</ul>
 <center>
-<img src="../book/figures/k8s-app.png" style="width:50.0%" />
+<img src="../book/figures/k8s-app.png" style="width:35.0%" />
 </center>
 <p>Veamos este ejemplo - [<a href="https://www.josedomingo.org/pledin/2018/06/recursos-de-kubernetes-pods/" target="_blank">enlace</a>]</p>
 </div>
-<div id="ingress-extensions" class="slide section level1">
-<h1>Ingress extensions</h1>
+<div id="accediendo-a-un-servicio-en-kubernetes" class="slide section level1">
+<h1>Accediendo a un servicio en Kubernetes</h1>
+<ul>
+<li><p>Un <em>Service</em> es un objeto que permite exponer un servicio que corre en un contenedor afuera de él.</p></li>
+<li><p><em>ClusterIP</em> es el servicio por defecto que permite que un servicio en un <em>Pod</em> se pueda acceder desde <strong>dentro del cluster</strong> - <a href="https://medium.com/google-cloud/kubernetes-nodeport-vs-loadbalancer-vs-ingress-when-should-i-use-what-922f010849e0">enlace</a>.</p></li>
+<li><p>Existen diversos objetos que pueden exponer dicho <em>service</em> a usuarios externos: <em>NodePort</em>, <em>LoadBalancer</em> o <em>Ingress</em>.</p></li>
+</ul>
+</div>
+<div id="nodeport" class="slide section level1">
+<h1>NodePort</h1>
+<ul>
+<li><em>NodePort</em> es un objeto de k8s quien recibe un número de puerto y lo toma en todos los nodos del cluster. Cada vez que se haga una petición a cualquier IP de los nodos del cluster a ese puerto lo redirige al <em>Service</em></li>
+</ul>
 <center>
-<img src="../book/figures/k8s-ingress.png" style="width:50.0%" />
+<img src="../book/figures/NodePort.png" style="width:35.0%" />
+</center>
+</div>
+<div id="definición-de-un-nodeport" class="slide section level1">
+<h1>Definición de un NodePort</h1>
+<pre><code>apiVersion: v1
+kind: Service
+metadata:  
+  name: my-nodeport-service
+spec:
+  selector:    
+    app: my-app
+  type: NodePort
+  ports:  
+  - name: http
+    port: 80
+    targetPort: 80
+    nodePort: 30036
+    protocol: TCP</code></pre>
+</div>
+<div id="loadbalancer" class="slide section level1">
+<h1>LoadBalancer</h1>
+<ul>
+<li><p>El esquema de <em>LoadBalancer</em> es la forma estándar de exponer un servicio en Internet.</p></li>
+<li><p>En este esquema no hay filtros, no hay enrutamientos; permite el envio de casi cualquier tipo de tráfico HTTP, TCP, UDP, WebSockets, gRPC.</p></li>
+<li><p>Cada <em>Service</em> expuesto demanda un IP, es costoso</p></li>
+</ul>
+<center>
+<img src="../book/figures/LoadBalancer.png" style="width:35.0%" />
+</center>
+</div>
+<div id="ingress" class="slide section level1">
+<h1>Ingress</h1>
+<ul>
+<li><p><em>Ingress</em> es un objeto que permite exponer un servicio de red apoyado a través de un <em>proxy</em> inverso, ejemplo: Nginx.</p></li>
+<li><p><em>Ingress</em> es una especie de “smart router”. Por defecto es capaz de redireccionar tráfico HTTP</p></li>
+<li><p>Existen diferentes controladores de tipo <em>Ingress</em>: Nginx, Contour, Istio</p></li>
+<li><p>Funciona bien cuando se quieren exponer varios servicios bajo un mismo IP</p></li>
+</ul>
+<center>
+<img src="../book/figures/Ingress.png" style="width:40.0%" />
 </center>
 <p>Veamos este ejemplo - [<a href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html" target="_blank">enlace</a>]</p>
 </div>
+<div id="agenda-4" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li><p><del>Serverless</del></p></li>
+<li><p><del>FaaS - Function as a Service</del></p></li>
+<li><p><del>OpenFaaS - una implementación de FaaS</del> </p></li>
+<li><p><del>Kubernetes</del></p></li>
+<li><p>k3s - k8s para IoT</p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
+</ul>
+</div>
 <div id="k3s" class="slide section level1">
 <h1>k3s</h1>
+<ul>
+<li><p>Kubernetes es un producto de software complejo que gestiona una infraestructura compleja</p></li>
+<li><p>Kubernetes tiene muchos componentes en su interior que necesitan ser cuidadosamente configurados</p></li>
+<li><p>Existen variaciones que facilitan la interacción con ambientes k8s: minikube, docker desktop, k3s</p></li>
+</ul>
 <center>
 <img src="../book/figures/how-it-works-k3s.png" style="width:50.0%" />
 </center>
+</div>
+<div id="agenda-5" class="slide section level1">
+<h1>Agenda</h1>
+<ul>
+<li><p><del>Serverless</del></p></li>
+<li><p><del>FaaS - Function as a Service</del></p></li>
+<li><p><del>OpenFaaS - una implementación de FaaS</del> </p></li>
+<li><p><del>Kubernetes</del></p></li>
+<li><p><del>k3s - k8s para IoT</del> </p></li>
+<li><p>Aplicación de Docker Compose → Kubernetes</p></li>
+</ul>
 </div>
 <div id="aplicación-de-docker-compose-kubernetes" class="slide section level1">
 <h1>Aplicación de Docker Compose → Kubernetes</h1>

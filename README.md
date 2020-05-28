@@ -6,6 +6,6 @@ Dentro de este repositorio se encuentran los siguientes directorios:
 
 * [book](book) aquí se encuentra el código fuente del libro que aborda el tema de FaaS a través de la tecnología OpenFaaS y de OpenFaaS sobre Kubernetes. Todos los ejemplos funcionan en ambientes basados en Raspberry Pi (Raspbian).
 
-* [code](code) en este directorio se encuentran los códigos que acompañan al libro.
+* [code](code) en este directorio se encuentran los códigos que acompañan al libro y unos [ejemplos](code/examples/) de como usar un cluster con Kubernetes.
 
 * [presentation](presentation) en este directorio se encuentra una presentación que acompaña el libro.

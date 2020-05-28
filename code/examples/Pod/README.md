@@ -15,7 +15,7 @@ En el directorio donde descargó el archivo se podrán ejecutar los siguientes c
 
 * `kubectl get pods` nos permite ver todos los *pods* que están corriendo en el sistema.
 
-* `kubectl get pod -o wide` permite ver en que equipo se está ejecutando el *pod*.
+* `kubectl get pod -o wide nginx` permite ver en que equipo se está ejecutando el *pod*.
 
 * `kubectl describe pod nginx` permite ver información más detallada del *pod*.
 
