@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="John Sanabria - john.sanabria@correounivalle.edu.co" />
+  <meta name="date" content="2020-05-27" />
+  <title>FaaS - Function as a Service</title>
+  <style type="text/css">
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" type="text/css" media="screen, projection, print"
+    href="https://www.w3.org/Talks/Tools/Slidy2/styles/slidy.css" />
+  <script src="https://www.w3.org/Talks/Tools/Slidy2/scripts/slidy.js"
+    charset="utf-8" type="text/javascript"></script>
+</head>
+<body>
+<div class="slide titlepage">
+  <h1 class="title">FaaS - Function as a Service</h1>
+  <p class="author">
+John Sanabria - john.sanabria@correounivalle.edu.co
+  </p>
+  <p class="date">2020-05-27</p>
+</div>
+<div id="introduccion" class="slide section level1">
+<h1>Introducción</h1>
+<ul>
+<li><p>Continuos desarrollos diferentes escenarios: mainframes, transistores → computadoras personales, Internet, web services, virtualización (hypervisor → basada en el sistema operativo), computación en la nube.</p></li>
+<li><p>Computación en la nube: IaaS, PaaS, SaaS.</p></li>
+<li><p>IaaS permite compra de servidores disponibles en Internet y se paga por lo que se consume. Sin embargo, demanda que los servidores estén siempre arriba independiente si estos son accedidos o no.</p></li>
+<li><p>FaaS (Function as a Service ) permite la ejecución de funciones en la nube y se paga solo por el tiempo de ejecución de estas funciones</p></li>
+<li><p><strong>PROBLEMA</strong> estas funciones no se pueden tomar más de 12 minutos en ejecución y la cantidad de RAM que consumen es limitada.</p></li>
+</ul>
+</div>
+<div id="serverless" class="slide section level1">
+<h1>Serverless</h1>
+<ul>
+<li><em>Serverless</em> hace referencia a un tipo de computación donde el usuario no tiene cuidado del servidor donde correrá sus procesos</li>
+</ul>
+<center>
+<img src="../book/figures/ServerlessPlatformArchitecture.png" style="width:70.0%" />
+</center>
+</div>
+<div id="faas" class="slide section level1">
+<h1>FaaS</h1>
+<ul>
+<li>FaaS (<em>Function as a Service</em>) es un tipo de <em>serverless</em> donde las funciones definidas por el desarrollador corren en contenedores</li>
+</ul>
+<center>
+<img src="../book/figures/FaaS.png" style="width:70.0%" />
+</center>
+</div>
+<div id="openfaas" class="slide section level1">
+<h1>OpenFaaS</h1>
+<ul>
+<li>OpenFaaS es una implementación del concepto de FaaS que permite ejecutar funciones como servicios en diferentes entornos.</li>
+</ul>
+<center>
+<img src="../book/figures/FaaS-Architecture.png" style="width:50.0%" />
+</center>
+</div>
+<div id="kubernetes" class="slide section level1">
+<h1>Kubernetes</h1>
+<center>
+<img src="../book/figures/k8s-arch.png" style="width:50.0%" />
+</center>
+</div>
+<div id="algunos-objetos-en-kubernetes" class="slide section level1">
+<h1>Algunos objetos en Kubernetes</h1>
+<center>
+<img src="../book/figures/k8s-app.png" style="width:50.0%" />
+</center>
+<p>Veamos este ejemplo - [<a href="https://www.josedomingo.org/pledin/2018/06/recursos-de-kubernetes-pods/" target="_blank">enlace</a>]</p>
+</div>
+<div id="ingress-extensions" class="slide section level1">
+<h1>Ingress extensions</h1>
+<center>
+<img src="../book/figures/k8s-ingress.png" style="width:50.0%" />
+</center>
+<p>Veamos este ejemplo - [<a href="https://matthewpalmer.net/kubernetes-app-developer/articles/kubernetes-ingress-guide-nginx-example.html" target="_blank">enlace</a>]</p>
+</div>
+<div id="k3s" class="slide section level1">
+<h1>k3s</h1>
+<center>
+<img src="../book/figures/how-it-works-k3s.png" style="width:50.0%" />
+</center>
+</div>
+<div id="aplicación-de-docker-compose-kubernetes" class="slide section level1">
+<h1>Aplicación de Docker Compose → Kubernetes</h1>
+</div>
+</body>
+</html>
