@@ -1,0 +1,5 @@
+\usepackage[most]{tcolorbox}
+\definecolor{light-yellow}{rgb}{1, 0.95, 0.7}
+\newtcolorbox{myquote}{colback=light-yellow,grow to right by=-10mm,grow to left by=-10mm, boxrule=0pt,boxsep=0pt,breakable}
+\newcommand{\importante}[1]{\begin{myquote} \textbf{IMPORTANTE:} #1 \end{myquote}}
+\newcommand{\codigo}[1]{{\footnotesize{\ttfamily {#1}}}}

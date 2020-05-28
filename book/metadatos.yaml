@@ -1,0 +1,18 @@
+---
+title: Una breve introducción a FaaS
+author: John Alexander Sanabria
+lang: es-ES
+
+documentclass: book
+geometry:
+- top=0.5in
+- bottom=0.0.5in
+- right=0.5in
+- left=0.5in
+mainfont: LiberationSans
+fontsize: 12pt
+
+
+bibliography: /Users/johnsanabria/Documents/BibTeX/FaaS.bib
+csl: ieee.csl
+---

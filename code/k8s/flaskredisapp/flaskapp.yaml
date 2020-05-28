@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: flaskapp
+  labels:
+    app: flaskapp
+spec:
+  containers:
+    - name: flaskapp
+      image: josanabr/demoflask-armv7l:1.0.1
+      ports:
+      - containerPort: 5000
+      imagePullPolicy: Always
+    - name: redis
+      image: arm32v7/redis
+      ports:
+      - containerPort: 6379
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskapp
+  labels:
+    app: flaskapp
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+    targetPort: 5000
+  selector:
+    app: flaskapp
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: flaskapp
+  annotations:
+    # Disables http redirect to https
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: flaskapp
+          servicePort: 80
