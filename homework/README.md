@@ -12,7 +12,17 @@ La figura abajo muestra lo que se desea se despliegue por parte del estudiante.
 
 ![](../book/figures/FaaSK8SInletsHomework.png)
 
-El servicio o función que se debe desplegar dentro de la plataforma FaaS debe ser algunas de las siguientes opciones:
+En la figura se muestra que el estudiante debe desplegar un cluster de Kubernetes. 
+Este cluster puede ser virtual o físico. 
+En la sección [Instalación Kubernetes](#instalacion-kubernetes) se dan algunos ambientes que se sugieren puedan ser instalados por el estudiante para el desarrollo de esta tarea.
+**El estudiante deberá indicar y documentar el ambiente que seleccionó y como llevó a cabo el despliegue del ambiente de Kubernetes**.
+
+Este cluster de Kubernetes debe tener instalado OpenFaaS, [aquí](#openfaas) se indica como hacer la instalación de OpenFaaS en Kubernetes.
+
+El ambiente de Kubernetes con OpenFaaS instalado deberá ser expuesto hacia Internet usando la tecnología de Inlets. 
+En la sección [Enlaces de Interés](#enlaces-de-interes) se brinda un enlace al repositorio que se compartió en clase respecto al tema de Inlets.
+
+En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que debe ser capaz de usar algunas de las siguientes funciones y/o librería:
 
 * Una función que haga uso de la librería Pandas. 
 
@@ -22,7 +32,7 @@ El servicio o función que se debe desplegar dentro de la plataforma FaaS debe s
 
 * Otra. Enviar un correo al profesor (john.sanabria@correounivalle.edu.co) y proponer su idea de proyecto.
 
-En cualquiera de las opciones que seleccione deberá proveer el Dockerfile con el que se creó la imagen de contenedor donde reside la función y un caso de uso de dicha función.
+**En cualquiera de las opciones que seleccione deberá proveer el Dockerfile con el que se creó la imagen de contenedor donde reside la función y un caso de uso de dicha función.**
 
 ## Términos de la práctica
 
@@ -34,14 +44,14 @@ A continuación se describen los pasos para poner a punto todas las tecnologías
 
 ### Instalacion Kubernetes
 
-Para llevar a cabo el despliegue de un nodo de k8s usará el código de [este repositorio](https://github.com/josanabr/ansible-k8s).
-Clone el repositorio, ingrese al directorio donde se clonó el repositorio y crea el cluster ejecutando el siguiente comando:
+Para llevar a cabo el despliegue de Kubernetes se dan las siguientes opciones:
 
-```
-vagrant up k8s-master k8s-worker1
-```
+* [k3s](https://k3s.io/) Este proyecto permite la ejecución de Kubernetes en ambientes basados en sistemas ARM, IoT, entre otros. Existen en Internet sitios que hablan de como instalar k3s sobre máquinas virtuales basadas en VirtualBox.
 
-Esta ejecución construye un cluster con dos nodos.
+* [Kubernetes en VirtualBox](https://github.com/josanabr/ansible-k8s) En este repositorio se pueden crear hasta 3 máquinas virtuales en las cuales se instala Kubernetes original. La última vez que se probó fue el día 2020-06-02 con todo éxito.
+
+* [Minikube](https://kubernetes.io/docs/setup/learning-environment/minikube/) Este proyecto permite tener todo un ambiente de Kubernetes operacional en una sola máquina.
+
 
 ### `kubectl`
 
@@ -180,7 +190,7 @@ Pasos que seguí una vez instalado openfaas en 'k8s-master'
 3- [laptop] PASSWORD=$(kubectl --kubeconfig config get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
 4- [laptop] echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 
-## Enlaces de interés
+## Enlaces de interes
 
 * [Inlets](https://github.com/josanabr/tunneling-inlets)
 * [k8s](https://github.com/josanabr/ansible-k8s)
