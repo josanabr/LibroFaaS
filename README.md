@@ -8,4 +8,6 @@ Dentro de este repositorio se encuentran los siguientes directorios:
 
 * [code](code) en este directorio se encuentran los códigos que acompañan al libro y unos [ejemplos](code/examples/) de como usar un cluster con Kubernetes.
 
+* [homework](homework) en este directorio se da una descripción de la tarea a desarrollar.
+
 * [presentation](presentation) en este directorio se encuentra una presentación que acompaña el libro.

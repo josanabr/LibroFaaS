@@ -4,6 +4,16 @@
 
 El propósito de esta asignación es validar que el estudiante ha adquirido unas competencias mínimas en cuanto a la gestión y uso de las tecnologías FaaS (*Function as a Service*), K8S (Kubernetes) e Inlets.
 
+Este documento consta de las siguientes secciones:
+
+* [Resultado esperado](#resultado-esperado).
+
+* [Guía](#guia) en esta sección se presentan algunos tips respecto a las tecnologías que se deben usar en el proyecto.
+
+* [Términos de la entrega](#terminos-de-la-entrega) en esta sección se dan detalles de que es lo que debe entregar el estudiante como informe final.
+
+* [Enlaces de interés](#enlaces-de-interes) en esta sección se presentan algunos enlaces que pueden servir de interés para llevar a cabo el proyecto.
+
 ## Resultado esperado
 
 El estudiante deberá proveer una plataforma computacional que soporte el servicio FaaS sobre un ambiente de Kubernetes. 
@@ -37,7 +47,7 @@ En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que d
 
 A continuación se da una guía o pequeños tips que debe tener en cuenta el estudiante a la hora de llevar a cabo esta asignación.
 
-## Guía
+## Guia
 
 En la sección anterior se explicó acerca de que es lo que se espera el estudiante lleve a cabo. 
 A continuación se dan algunos *tips* respecto de la mayoría de tecnologías que el estudiante requiere para llevar a cabo el presente proyecto.
@@ -115,7 +125,7 @@ En la siguiente sección se describe como instalar `faas-cli`.
 
 ### `faas-cli`
 
-En el ítem anterior se evidenció como instalar `OpenFaaS` en un cluster de Kubernetes.
+En el ítem anterior se mostró como instalar `OpenFaaS` en un cluster de Kubernetes.
 La salida del comando que instala `OpenFaaS` indica los pasos para instalar `faas-cli` y luego como acceder a él. 
 `faas-cli` se puede instalar en el *master* o en algún otro nodo que tenga acceso al *master* del cluster de Kubernetes.
 
@@ -145,19 +155,19 @@ export OPENFAAS_URL="http://127.0.0.1:31112"
 echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 ```
 
-## Términos de la entrega
+## Terminos de la entrega
 
 La entrega de este proyecto debe constar de lo siguiente:
 
-* Un informe escrito que brinde un contexto del problema a abordar (algo similar a lo que se indica en la sección [Resultado esperado](#resultado-esperado). Así mismo el desarrollo o los pasos seguidos para llegar a la conclusión del proyeto.
+* Un informe escrito que brinde un contexto del problema a abordar (algo similar a lo que se indica en la sección [Resultado esperado](#resultado-esperado)). Así mismo el desarrollo o los pasos seguidos para llegar a la conclusión del proyeto.
 
 * Un repositorio en GitHub donde se de evidencia de todos los scripts y archivos que permitieron llegar a la solución del problema, ejemplo: Dockerfiles, scripts de isntalación. Todos los insumos que en el informe se presenten deberán ser puestos en el repositorio de GitHub y debidamente referenciados dentro del informe.
 
 * Videos en [asciinema](https://asciinema.org) y que evidencien:
 
   * El acceso al cluster de Kubernetes via `kubectl`.
-  * La construcción, despliegue y publicación de la función que se usó en el proyecto.
-  * La ejecución de la función desde Internet y al cluster de Kubernetes que se encuentra dentro de la red privada.
+  * La construcción, despliegue y publicación de la función que se usó en el proyecto via `faas-cli`.
+  * La ejecución de la función desde Internet y al cluster de Kubernetes que se encuentra dentro de la red privada via `faas-cli`.
 
 ## Enlaces de interes
 
