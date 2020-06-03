@@ -7,19 +7,22 @@ El propósito de esta asignación es validar que el estudiante ha adquirido unas
 ## Resultado esperado
 
 El estudiante deberá proveer una plataforma computacional que soporte el servicio FaaS sobre un ambiente de Kubernetes. 
-Este ambiente de Kubernetes se encuentra desplegado en la red privada del estudiante y será accesible a través de Inltes. 
+Este ambiente de Kubernetes se encuentra desplegado en la red privada del estudiante y será accesible a través de Inlets. 
+La figura abajo muestra lo que se desea se despliegue por parte del estudiante.
 
-El servicio que se debe desplegar dentro de la plataforma FaaS debe ser algunas de las siguientes opciones:
+![](../book/figures/FaaSK8SInletsHomework.png)
 
-* Una función que haga uso de la librería Pandas.
+El servicio o función que se debe desplegar dentro de la plataforma FaaS debe ser algunas de las siguientes opciones:
+
+* Una función que haga uso de la librería Pandas. 
 
 * Una función que haga uso de la librería TensorFlow ([enlace](https://www.tensorflow.org/api_docs/python/tf)).
 
 * Una función que haga el procesamiento de un video o de una imágen y obtenga los números de placa dado un archivo multimedia ([enlace](https://github.com/openalpr/openalpr)).
 
-* Otra[^otra].
+* Otra. Enviar un correo al profesor (john.sanabria@correounivalle.edu.co) y proponer su idea de proyecto.
 
-[^otra]: Enviar un correo al profesor (john.sanabria@correounivalle.edu.co) y proponer su idea de proyecto.
+En cualquiera de las opciones que seleccione deberá proveer el Dockerfile con el que se creó la imagen de contenedor donde reside la función y un caso de uso de dicha función.
 
 ## Términos de la práctica
 
@@ -73,7 +76,7 @@ k8s-master   Ready    master   32m   v1.18.3
 node-1       Ready    <none>   30m   v1.18.3
 ```
 
-De ser así, ya tiene configurada su herramienta para acceder al cluster de  k8s.
+De ser así, ya tiene configurados su cluster y su herramienta de gestión para acceder al cluster de k8s.
 
 ### OpenFaaS
 
@@ -127,6 +130,17 @@ faas-cli store deploy figlet \
 Thanks for using arkade!
 ```
 
+Asegúrese de ejecutar este comando dentro de la máquina virtual:
+
+```
+kubectl port-forward -n openfaas svc/gateway 8080:8080
+```
+
+Salga de la máquina virtual (`exit`) y ejecute el siguiente comando:
+
+VBoxManage controlvm k8s_k8s-master_1591044207003_35102 natpf1 "k8s,tcp,,8080,,8080"
+
+
 En la siguiente sección se describe como hacer el despliegue de `faas-cli`, la herramienta para la gestión de funciones en un ambiente de cómputo.
 
 ### `faas-cli`
@@ -156,3 +170,17 @@ kubectl --kubeconfig config port-forward svc/gateway -n openfaas 31112:8080 &
 export OPENFAAS_URL="http://127.0.0.1:31112"
 echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 ```
+
+---
+
+Pasos que seguí una vez instalado openfaas en 'k8s-master'
+
+1- [k8s-master] kubectl port-forward svc/gateway -n openfaas --address 0.0.0.0 8080:8080
+2- [laptop] VBoxManage controlvm k8s-master natpf1 "k8s,tcp,,8080,,8080"
+3- [laptop] PASSWORD=$(kubectl --kubeconfig config get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
+4- [laptop] echo -n $PASSWORD | faas-cli login --username admin --password-stdin
+
+## Enlaces de interés
+
+* [Inlets](https://github.com/josanabr/tunneling-inlets)
+* [k8s](https://github.com/josanabr/ansible-k8s)
