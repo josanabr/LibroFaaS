@@ -18,11 +18,12 @@ En la sección [Instalación Kubernetes](#instalacion-kubernetes) se dan algunos
 **El estudiante deberá indicar y documentar el ambiente que seleccionó y como llevó a cabo el despliegue del ambiente de Kubernetes**.
 
 Este cluster de Kubernetes debe tener instalado OpenFaaS, [aquí](#openfaas) se indica como hacer la instalación de OpenFaaS en Kubernetes.
+En la sección 5.5 del [libro compartido](../book/output/book.pdf) en clase también se da una explicación de este proceso de instalación.
 
 El ambiente de Kubernetes con OpenFaaS instalado deberá ser expuesto hacia Internet usando la tecnología de Inlets. 
 En la sección [Enlaces de Interés](#enlaces-de-interes) se brinda un enlace al repositorio que se compartió en clase respecto al tema de Inlets.
 
-En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que debe ser capaz de usar algunas de las siguientes funciones y/o librerías:
+En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que deberá usar algunas de las siguientes funciones y/o librerías:
 
 * Una función que haga uso de la librería Pandas. 
 
