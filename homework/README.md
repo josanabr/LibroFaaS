@@ -22,7 +22,7 @@ Este cluster de Kubernetes debe tener instalado OpenFaaS, [aquí](#openfaas) se 
 El ambiente de Kubernetes con OpenFaaS instalado deberá ser expuesto hacia Internet usando la tecnología de Inlets. 
 En la sección [Enlaces de Interés](#enlaces-de-interes) se brinda un enlace al repositorio que se compartió en clase respecto al tema de Inlets.
 
-En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que debe ser capaz de usar algunas de las siguientes funciones y/o librería:
+En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que debe ser capaz de usar algunas de las siguientes funciones y/o librerías:
 
 * Una función que haga uso de la librería Pandas. 
 
@@ -34,13 +34,12 @@ En este ambiente de Kubernetes + OpenFaaS deberá desplegarse una función que d
 
 **En cualquiera de las opciones que seleccione deberá proveer el Dockerfile con el que se creó la imagen de contenedor donde reside la función y un caso de uso de dicha función.**
 
-## Términos de la práctica
-
-El estudiante 
+A continuación se da una guía o pequeños tips que debe tener en cuenta el estudiante a la hora de llevar a cabo esta asignación.
 
 ## Guía
 
-A continuación se describen los pasos para poner a punto todas las tecnologías que el estudiante requiere para llevar a cabo el presente proyecto.
+En la sección anterior se explicó acerca de que es lo que se espera el estudiante lleve a cabo. 
+A continuación se dan algunos *tips* respecto de la mayoría de tecnologías que el estudiante requiere para llevar a cabo el presente proyecto.
 
 ### Instalacion Kubernetes
 
@@ -57,46 +56,16 @@ Para llevar a cabo el despliegue de Kubernetes se dan las siguientes opciones:
 
 `kubectl` es la herramienta que permite la gestión de un cluster de k8s. 
 Para instalar la herramienta visitar [este enlace](https://kubernetes.io/docs/tasks/tools/install-kubectl/).
-Una vez instalada la herramienta debe obtener el archivo de configuración del cluster creado en el punto de [instalación de Kubernetes](#instalacion-kubernetes). 
-Diríjase al directorio donde instaló k8s con Vagrant y ejecute los siguientes comandos:
 
-```
-vagrant ssh k8s-master
-```
-
-Una vez dentro de la máquina ejecute lo siguiente:
-
-```
-cp .kube/config /vagrant
-```
-
-Salga del nodo maestro (`exit`) y en el directorio donde está ubicado usted encontrará un archivo llamado `config`.
-Ese archivo es el insumo de `kubectl` para interactuar con su cluster virtual.
-Ejecute el siguiente comando:
-
-```
-kubectl --kubeconfig config get nodes
-```
-
-Deberá obtener una salida similar a la siguiente:
-
-```
-NAME         STATUS   ROLES    AGE   VERSION
-k8s-master   Ready    master   32m   v1.18.3
-node-1       Ready    <none>   30m   v1.18.3
-```
-
-De ser así, ya tiene configurados su cluster y su herramienta de gestión para acceder al cluster de k8s.
+`kubectl` se puede instalar dentro del *master* del cluster de Kubernetes o fuera de él.
+**Es decisión del estudiante si decide hacer la instalación dentro o fuera del** *master*.
 
 ### OpenFaaS
 
-Para instalar OpenFaaS en un cluster de Kubernetes debe hacer lo siguiente:
+Para instalar OpenFaaS en un cluster de Kubernetes debe acceder al nodo *master* y se sugieren los siguientes pasos:
 
-* Ingresar al nodo maestro del cluster de k8s:
-```
-vagrant ssh k8s-master
-```
-* Instalar la herramienta para la gestión de paquetes en k8s llamada `arkade`:
+* Instalar la herramienta para la gestión de paquetes en Kubernetes llamada `arkade`:
+
 ```
 curl -SLsf https://dl.get-arkade.dev/ | sudo sh
 ```
@@ -107,6 +76,7 @@ Get Kubernetes apps the easy way
 Version: 0.3.3
 Git Commit: 519c056683d63bb90cfae60b83c8e136138a7644
 ```
+
 * Instalar `openfaas`:
 ```
 sudo arkade install openfaas
@@ -140,23 +110,11 @@ faas-cli store deploy figlet \
 Thanks for using arkade!
 ```
 
-Asegúrese de ejecutar este comando dentro de la máquina virtual:
-
-```
-kubectl port-forward -n openfaas svc/gateway 8080:8080
-```
-
-Salga de la máquina virtual (`exit`) y ejecute el siguiente comando:
-
-VBoxManage controlvm k8s_k8s-master_1591044207003_35102 natpf1 "k8s,tcp,,8080,,8080"
-
-
-En la siguiente sección se describe como hacer el despliegue de `faas-cli`, la herramienta para la gestión de funciones en un ambiente de cómputo.
-
 ### `faas-cli`
 
-En el ítem anterior se evidenció como instalar `openfaas` en un cluster de k8s.
-La salida del comando que instala `openfaas` indica los pasos para instalar `faas-cli` y luego como acceder a él. 
+En el ítem anterior se evidenció como instalar `OpenFaaS` en un cluster de Kubernetes.
+La salida del comando que instala `OpenFaaS` indica los pasos para instalar `faas-cli` y luego como acceder a él. 
+**IMPORTANTE** `faas-cli` se instala en el nodo *master*.
 
 * Instalación de `faas-cli`
 ```
