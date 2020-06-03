@@ -110,18 +110,23 @@ faas-cli store deploy figlet \
 Thanks for using arkade!
 ```
 
+En la siguiente sección se describe como instalar `faas-cli`.
+
 ### `faas-cli`
 
 En el ítem anterior se evidenció como instalar `OpenFaaS` en un cluster de Kubernetes.
 La salida del comando que instala `OpenFaaS` indica los pasos para instalar `faas-cli` y luego como acceder a él. 
-**IMPORTANTE** `faas-cli` se instala en el nodo *master*.
+`faas-cli` se puede instalar en el *master* o en algún otro nodo que tenga acceso al *master* del cluster de Kubernetes.
+
+Para la instalación de `faas-cli` se sugieren los siguientes pasos:
 
 * Instalación de `faas-cli`
 ```
 curl -SLsf https://cli.openfaas.com | sudo sh
 ```
-* Puesta a punto de `faas-cli` para acceder a él.
-Para lograr este paso se deben llevar algunos pasos adicionales:
+
+Si `faas-cli` se instaló por fuera del *master* se requieren algunos pasos adicionales. 
+Aquí se dan estos pasos:
 
   * Obtener el password asignado al servicio OpenFaaS en k8s:
 ```
@@ -139,16 +144,24 @@ export OPENFAAS_URL="http://127.0.0.1:31112"
 echo -n $PASSWORD | faas-cli login --username admin --password-stdin
 ```
 
----
+## Términos de la entrega
 
-Pasos que seguí una vez instalado openfaas en 'k8s-master'
+La entrega de este proyecto debe constar de lo siguiente:
 
-1- [k8s-master] kubectl port-forward svc/gateway -n openfaas --address 0.0.0.0 8080:8080
-2- [laptop] VBoxManage controlvm k8s-master natpf1 "k8s,tcp,,8080,,8080"
-3- [laptop] PASSWORD=$(kubectl --kubeconfig config get secret -n openfaas basic-auth -o jsonpath="{.data.basic-auth-password}" | base64 --decode; echo)
-4- [laptop] echo -n $PASSWORD | faas-cli login --username admin --password-stdin
+* Un informe escrito que brinde un contexto del problema a abordar (algo similar a lo que se indica en la sección [Resultado esperado](#resultado-esperado). Así mismo el desarrollo o los pasos seguidos para llegar a la conclusión del proyeto.
+
+* Un repositorio en GitHub donde se de evidencia de todos los scripts y archivos que permitieron llegar a la solución del problema, ejemplo: Dockerfiles, scripts de isntalación. Todos los insumos que en el informe se presenten deberán ser puestos en el repositorio de GitHub y debidamente referenciados dentro del informe.
+
+* Videos en [asciinema](https://asciinema.org) y que evidencien:
+
+  * El acceso al cluster de Kubernetes via `kubectl`.
+  * La construcción, despliegue y publicación de la función que se usó en el proyecto.
+  * La ejecución de la función desde Internet y al cluster de Kubernetes que se encuentra dentro de la red privada.
 
 ## Enlaces de interes
 
-* [Inlets](https://github.com/josanabr/tunneling-inlets)
-* [k8s](https://github.com/josanabr/ansible-k8s)
+En esta sección se brindan algunos enlaces que puede ser de utilidad para el desarrollo del proyecto.
+
+* [Como desplegar Inlets en Google Cloud Platform](https://github.com/josanabr/tunneling-inlets)
+* [Kubernetes en máquinas virtuales de VirtualBox usando Vagrant](https://github.com/josanabr/ansible-k8s)
+* [Libro OpenFaaS, Kubernetes](../book/output/book.pdf).
